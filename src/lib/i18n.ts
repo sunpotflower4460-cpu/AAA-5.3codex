@@ -5,6 +5,8 @@ export const copy = {
   taglineEn: 'Write with stillness.',
   emptyTitle: 'まだ、言葉は置かれていません。',
   emptySubtitle: 'No words have settled yet.',
+  emptySearchTitle: '探している言葉は、まだ見つかりません。',
+  emptySearchSubtitle: 'No matching notes found.',
   searchPlaceholder: '言葉を探す',
   newNote: '新しい余白',
   openEmpty: '新しい余白をひらく',

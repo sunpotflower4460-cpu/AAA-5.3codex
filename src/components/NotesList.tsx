@@ -25,6 +25,8 @@ export function NotesList({
   onOpen,
   onToggleFavorite,
 }: NotesListProps) {
+  const hasSearchQuery = search.trim().length > 0;
+
   return (
     <section className="relative">
       <SearchBar value={search} placeholder={copy.searchPlaceholder} onChange={onSearch} />
@@ -39,7 +41,7 @@ export function NotesList({
       </button>
 
       {notes.length === 0 ? (
-        <EmptyState onCreate={onCreate} />
+        <EmptyState onCreate={onCreate} variant={hasSearchQuery ? 'search' : 'default'} />
       ) : (
         <div className="grid gap-[13px] pb-[89px]">
           {notes.map((note) => (
