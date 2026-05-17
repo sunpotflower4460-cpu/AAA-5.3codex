@@ -9,64 +9,68 @@
 
 「残心」は、和の美意識・間・余白・静けさを大切にした、シンプルなiOS向けメモアプリです。
 
-大量の機能で埋めるのではなく、  
-書くこと、読み返すこと、書いたあとに残る余韻を美しくすることを目指します。
+Open → Write → Save quietly → Return → Read again の最小体験に集中します。
 
 ---
 
-## ターゲット
+## 技術スタック
 
-**日本向け**
-
-- シンプルで美しいメモ帳が欲しい人
-- 和のデザインが好きな人
-- 日記、詩、創作メモ、アイデアメモを書く人
-- 静かで落ち着いたUIを好む人
-
-**海外向け**
-
-- Japanese minimalism
-- Zen-inspired writing
-- Wabi-sabi
-- Mindful notes
-- Calm journaling
-- Write with stillness
-- Saved in stillness
+- Vite
+- React + TypeScript
+- Tailwind CSS
+- localStorage（MVP）
 
 ---
 
 ## MVP機能
 
-| 機能 | 説明 |
-|------|------|
-| メモ一覧 | 書いたメモを静かに並べる |
-| メモ作成 | 新しい言葉を置く |
-| メモ編集 | 言葉を直す |
-| メモ削除 | 言葉を手放す |
-| 自動保存 | 静かに、気配なく保存する |
-| 検索 | 過去の言葉を手繰り寄せる |
-| お気に入り | 大切な言葉を残す |
-| ローカル保存 | まずはデバイスの中に |
-| iPhone向けUI | 手のひらに収まる静けさ |
-| 多言語文言設計 | 日本語・英語を意識した言葉づかい |
+- メモ一覧
+- メモ作成
+- メモ編集
+- メモ削除（確認ダイアログ）
+- 自動保存
+- 検索（タイトル・本文）
+- お気に入り
+- localStorage保存
+- iPhone向けレスポンシブUI
+- 日本語/英語を意識した文言
 
 ---
 
-## 技術方針
+## セットアップ
 
-- **Vite** — 高速な開発環境
-- **React + TypeScript** — 型安全なコンポーネント設計
-- **Tailwind CSS** — 余白と間を制御しやすいユーティリティCSS
-- **localStorage / IndexedDB** — MVPはローカル保存から
-- **PWA対応** — ブラウザからでもiOS的体験を
-- **Capacitor（将来）** — ネイティブiOSアプリ化への備え
+```bash
+npm install
+```
 
-### iOS前提の体験方針
+## 開発起動
 
-- iPhone幅で美しく見える余白設計を優先する
-- ボタンはタップしやすいサイズを守る
-- キーボード表示時も入力欄・保存状態が見切れないようにする
-- MVPはWebアプリとして作り、将来のiOSアプリ化（Capacitor）を阻害しない構造にする
+```bash
+npm run dev
+```
+
+## ビルド
+
+```bash
+npm run build
+```
+
+## Lint
+
+```bash
+npm run lint
+```
+
+---
+
+## Cloudflare Pages方針
+
+Phase 3の途中ではデプロイしません。MVP完成後にのみ、必要ならデプロイ設定を行います。
+
+Cloudflare Pages想定:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
 
 ---
 
@@ -74,19 +78,11 @@
 
 | フェーズ | 内容 | Cloudflareデプロイ |
 |----------|------|-------------------|
-| **Phase 1** | README/docsに設計を入れる | しない |
-| **Phase 2** | 監査フェーズ（設計確認・微修正） | しない |
-| **Phase 3** | MVPまで一気に作る | MVP完成後のみ |
+| Phase 1 | 設計整理 | しない |
+| Phase 2 | 監査フェーズ | しない |
+| Phase 3 | MVP実装 | MVP完成後のみ |
 
 詳細は [docs/development-phases.md](docs/development-phases.md) を参照。
-
----
-
-## Cloudflare Pagesルール
-
-- Phase 1ではデプロイしない
-- Phase 2でもデプロイしない
-- **Phase 3のMVP完成後のみ**、必要に応じてCloudflare Pagesへのデプロイ準備を行う
 
 ---
 
@@ -98,4 +94,4 @@
 | [docs/design-system.md](docs/design-system.md) | UI/UXとデザインシステム |
 | [docs/mvp-spec.md](docs/mvp-spec.md) | MVP仕様 |
 | [docs/development-phases.md](docs/development-phases.md) | 開発フェーズ |
-| [.github/copilot-instructions.md](.github/copilot-instructions.md) | Cloud Agent / Copilot向け作業ルール |
+| [docs/audit-phase-2.md](docs/audit-phase-2.md) | Phase 2監査結果 |
