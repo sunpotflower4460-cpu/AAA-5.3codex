@@ -25,9 +25,13 @@
 
 **海外向け**
 
-- Japanese minimalism / Zen / Wabi-sabi
-- Samurai-inspired calm focus
-- Mindful writing / Calm journaling
+- Japanese minimalism
+- Zen-inspired writing
+- Wabi-sabi
+- Mindful notes
+- Calm journaling
+- Write with stillness
+- Saved in stillness
 
 ---
 
@@ -56,6 +60,13 @@
 - **localStorage / IndexedDB** — MVPはローカル保存から
 - **PWA対応** — ブラウザからでもiOS的体験を
 - **Capacitor（将来）** — ネイティブiOSアプリ化への備え
+
+### iOS前提の体験方針
+
+- iPhone幅で美しく見える余白設計を優先する
+- ボタンはタップしやすいサイズを守る
+- キーボード表示時も入力欄・保存状態が見切れないようにする
+- MVPはWebアプリとして作り、将来のiOSアプリ化（Capacitor）を阻害しない構造にする
 
 ---
 

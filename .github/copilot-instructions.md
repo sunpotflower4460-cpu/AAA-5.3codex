@@ -108,6 +108,12 @@ If a feature makes the app:
 - Not a Japanese theme park
 - Not a clone of Notion, Bear, or Obsidian
 
+For MVP/Phase 1-3, do not add:
+- login/authentication
+- cloud sync
+- AI features
+- payment/subscription flows
+
 ---
 
 ## Key Documents

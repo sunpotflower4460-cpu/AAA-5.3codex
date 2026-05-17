@@ -13,7 +13,7 @@
 
 ## Phase 1: 設計整理
 
-**ステータス：** 🟢 実施中
+**ステータス：** ✅ 完了
 
 ### 目的
 
@@ -54,7 +54,7 @@ docs/development-phases.md
 
 ## Phase 2: 監査
 
-**ステータス：** ⬜ 未着手
+**ステータス：** 🟡 実施中
 
 ### 目的
 
@@ -74,6 +74,7 @@ docs/audit-phase-2.md
 - デザインシステムがMVP仕様に対応できるか
 - 技術スタックの選定に問題がないか
 - ファイル構成の初期案を確認する
+- 監査対象は README / docs / `.github/copilot-instructions.md` に限定し、MVP実装は開始しない
 
 ### Cloudflareデプロイ
 
