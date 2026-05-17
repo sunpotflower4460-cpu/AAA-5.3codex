@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AppShell } from './components/AppShell';
 import { NoteEditor } from './components/NoteEditor';
 import { NotesList } from './components/NotesList';
@@ -25,11 +25,16 @@ function App() {
   const [search, setSearch] = useState('');
   const [favoriteOnly, setFavoriteOnly] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
+  const hasInitializedSave = useRef(false);
 
   useEffect(() => {
     const saveTimeoutId = window.setTimeout(() => {
       saveNotes(notes);
-      setShowSaved(true);
+      if (hasInitializedSave.current) {
+        setShowSaved(true);
+      } else {
+        hasInitializedSave.current = true;
+      }
     }, 400);
 
     return () => window.clearTimeout(saveTimeoutId);
