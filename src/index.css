@@ -3,6 +3,7 @@
 :root {
   --color-washi: #f7f1e5;
   --color-paper: #fbf8f1;
+  --color-paper-soft: #fffdf8;
   --color-sumi: #1f1b18;
   --color-ink-muted: #5f5750;
   --color-gold: #c9a646;
@@ -10,6 +11,7 @@
   --color-vermilion: #b14a36;
   --color-line: rgba(31, 27, 24, 0.12);
   --color-shadow: rgba(31, 27, 24, 0.08);
+  --color-shell-shadow: rgba(31, 27, 24, 0.1);
 }
 
 * {
@@ -19,10 +21,25 @@
 body {
   margin: 0;
   min-height: 100svh;
-  background: var(--color-washi);
+  background:
+    radial-gradient(130% 100% at 50% -10%, color-mix(in srgb, var(--color-paper), white 18%) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-washi), white 10%), var(--color-washi));
   color: var(--color-sumi);
   font-family: 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 16%, color-mix(in srgb, var(--color-indigo), transparent 94%), transparent 34%),
+    radial-gradient(circle at 85% 86%, color-mix(in srgb, var(--color-gold), transparent 94%), transparent 30%),
+    repeating-linear-gradient(112deg, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 8px);
+  opacity: 0.42;
+  z-index: -1;
 }
 
 #root {
@@ -42,6 +59,48 @@ body {
     padding-right: 21px;
     padding-bottom: calc(89px + env(safe-area-inset-bottom));
     padding-left: 21px;
-    background: linear-gradient(180deg, var(--color-paper), color-mix(in srgb, var(--color-paper), white 8%));
+    background:
+      radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--color-gold), transparent 95%), transparent 34%),
+      radial-gradient(circle at 17% 88%, color-mix(in srgb, var(--color-indigo), transparent 95%), transparent 30%),
+      linear-gradient(180deg, var(--color-paper), color-mix(in srgb, var(--color-paper), white 8%));
+  }
+
+  .soft-enso {
+    position: relative;
+  }
+
+  .soft-enso::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    right: -16px;
+    top: -8px;
+    width: 89px;
+    height: 89px;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--color-line), transparent 28%);
+    opacity: 0.5;
+  }
+
+  .breath-motion {
+    animation: breath 4.6s ease-in-out infinite;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    border-left: 1px solid color-mix(in srgb, var(--color-line), transparent 30%);
+    border-right: 1px solid color-mix(in srgb, var(--color-line), transparent 30%);
+    box-shadow: 0 13px 55px color-mix(in srgb, var(--color-shell-shadow), transparent 35%);
+  }
+}
+
+@keyframes breath {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
   }
 }
